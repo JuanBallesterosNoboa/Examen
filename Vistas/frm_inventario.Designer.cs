@@ -1,4 +1,4 @@
-﻿namespace ControlInventario.Vistas
+﻿namespace Examen.Vistas
 {
     partial class frm_inventario
     {
@@ -173,4 +173,4 @@
         private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button btnNuevoProducto;
     }
-}}
+}

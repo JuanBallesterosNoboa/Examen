@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ControlInventario.Modelos
+namespace Examen.Modelos
 {
     [Table("Entradas")] // Mapea a la tabla 'Entradas' en la BD
     public class Entrada_Model

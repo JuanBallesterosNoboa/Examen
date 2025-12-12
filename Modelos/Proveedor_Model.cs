@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;    
 using Examen.Modelos;   
 
-namespace ControlInventario.Modelos
+namespace Examen.Modelos
 {
     [Table("Proveedores")] // Mapea a la tabla 'Proveedores' en la BD
     public class Proveedor_Model

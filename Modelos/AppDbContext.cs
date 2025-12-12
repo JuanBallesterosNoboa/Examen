@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Configuration; // Necesitas instalar el paquete NuGet System.Configuration.ConfigurationManager si usas .NET Core
 
-namespace ControlInventario.Modelos
+namespace Examen.Modelos
 {
     public class AppDbContext : DbContext
     {

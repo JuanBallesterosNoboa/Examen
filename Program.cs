@@ -1,4 +1,4 @@
-using ControlInventario.Vistas;
+using Examen.Vistas;
 
 namespace Examen
 {

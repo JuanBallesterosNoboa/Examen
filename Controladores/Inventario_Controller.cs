@@ -1,12 +1,12 @@
 ﻿// Archivo: Controladores/Inventario_Controller.cs
 
-using ControlInventario.Modelos;
+using Examen.Modelos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace ControlInventario.Controladores
+namespace Examen.Controladores
 {
     // Hereda las operaciones CRUD para el modelo Inventario_Model (Productos)
     public class Inventario_Controller : BaseRepository<Inventario_Model>

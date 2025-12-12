@@ -1,13 +1,13 @@
 ﻿// Archivo: BaseRepository.cs
 
-using ControlInventario.Modelos;
+using Examen.Modelos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ControlInventario.Controladores
+namespace Examen.Controladores
 {
     public abstract class BaseRepository<T> where T : class
     {

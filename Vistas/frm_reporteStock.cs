@@ -1,10 +1,10 @@
 ﻿// Archivo: Vistas/frm_reporteStock.cs
 
-using ControlInventario.Controladores;
+using Examen.Controladores;
 using System.Windows.Forms;
 using System;
 
-namespace ControlInventario.Vistas
+namespace Examen.Vistas
 {
     public partial class frm_reporteStock : Form
     {

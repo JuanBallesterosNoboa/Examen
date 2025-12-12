@@ -1,12 +1,12 @@
 ﻿// Archivo: Vistas/frm_entrada.cs
 
-using ControlInventario.Modelos;
-using ControlInventario.Controladores;
+using Examen.Modelos;
+using Examen.Controladores;
 using System.Windows.Forms;
 using System;
 using System.Linq;
 
-namespace ControlInventario.Vistas
+namespace Examen.Vistas
 {
     public partial class frm_entrada : Form
     {

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Examen.Modelos;
 
-namespace ControlInventario.Modelos
+namespace Examen.Modelos
 {
     [Table("Productos")] // Mapea a la tabla 'Productos' en la BD
     public class Inventario_Model

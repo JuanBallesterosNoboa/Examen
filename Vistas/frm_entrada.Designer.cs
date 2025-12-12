@@ -1,4 +1,4 @@
-﻿namespace ControlInventario.Vistas
+﻿namespace Examen.Vistas
 {
     partial class frm_entrada
     {

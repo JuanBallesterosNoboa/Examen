@@ -4,7 +4,7 @@ using System;
 using System.Windows.Forms;
 using Examen.Vistas;
 
-namespace ControlInventario.Vistas
+namespace Examen.Vistas
 {
     public partial class frm_menuprincipal : Form
     {
@@ -23,7 +23,7 @@ namespace ControlInventario.Vistas
         private void btn_proveedores_Click(object sender, EventArgs e)
         {
             // Asume que este botón se llama btn_proveedores
-            frm_proveedores frm = new frm_proveedores();
+            frm_proveedor frm = new frm_proveedor();
             frm.Show();
         }
 

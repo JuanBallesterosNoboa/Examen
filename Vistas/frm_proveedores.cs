@@ -1,11 +1,11 @@
 ﻿// Archivo: Vistas/frm_proveedor.cs
 
-using ControlInventario.Modelos;
-using ControlInventario.Controladores;
+using Examen.Modelos;
+using Examen.Controladores;
 using System.Windows.Forms;
 using System;
 
-namespace ControlInventario.Vistas
+namespace Examen.Vistas
 {
     public partial class frm_proveedor : Form
     {
