@@ -15,7 +15,7 @@ namespace Examen.Controladores
 
         public BaseRepository()
         {
-            // Crea una nueva instancia de DbContext para cada operación (simple para Windows Forms)
+            
             _context = new AppDbContext(new DbContextOptions<AppDbContext>());
         }
 

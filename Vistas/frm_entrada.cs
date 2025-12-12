@@ -1,5 +1,4 @@
-﻿// Archivo: Vistas/frm_entrada.cs
-
+﻿
 using Examen.Modelos;
 using Examen.Controladores;
 using System.Windows.Forms;
@@ -40,7 +39,6 @@ namespace Examen.Vistas
         private async void CargarEntradas()
         {
             var lista = await _entradaController.GetEntradasConDetalleAsync();
-            // Proyectar el resultado para mostrar los nombres del Producto y Proveedor
             dgvEntradas.DataSource = lista.Select(e => new
             {
                 e.EntradaId,

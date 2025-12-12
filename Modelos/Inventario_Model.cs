@@ -1,5 +1,4 @@
-﻿// Archivo: Modelos/Inventario_Model.cs
-
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,7 +20,6 @@ namespace Examen.Modelos
         [StringLength(500)]
         public string Descripcion { get; set; }
 
-        // Importante: Este campo es el que actualiza el Trigger de SQL
         public int Stock { get; set; } = 0;
 
         [Required(ErrorMessage = "El precio es obligatorio.")]
@@ -29,7 +27,6 @@ namespace Examen.Modelos
 
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
-        // Propiedad de navegación: Lista de entradas asociadas a este producto
         public ICollection<Entrada_Model> Entradas { get; set; } = new List<Entrada_Model>();
     }
 }

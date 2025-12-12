@@ -16,7 +16,6 @@ namespace Examen.Vistas
         {
             InitializeComponent();
             CargarProveedores();
-            // Asignación de eventos (Asegúrate de que tus botones estén conectados a estos métodos)
             dgvProveedores.CellClick += dgvProveedores_CellClick;
             btnGuardar.Click += btnGuardar_Click;
             btnActualizar.Click += btnActualizar_Click;

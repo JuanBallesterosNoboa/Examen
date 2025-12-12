@@ -1,6 +1,4 @@
-﻿// Archivo: Vistas/frm_reporteStock.cs
-
-using Examen.Controladores;
+﻿using Examen.Controladores;
 using System.Windows.Forms;
 using System;
 

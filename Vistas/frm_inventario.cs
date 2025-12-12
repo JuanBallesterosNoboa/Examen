@@ -1,5 +1,4 @@
-﻿// Archivo: Vistas/frm_inventario.cs
-
+﻿
 using Examen.Modelos;
 using Examen.Controladores;
 using System.Windows.Forms;

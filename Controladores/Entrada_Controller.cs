@@ -1,5 +1,4 @@
-﻿// Archivo: Controladores/Entrada_Controller.cs
-
+﻿
 using Examen.Modelos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -8,13 +7,10 @@ using System.Linq;
 
 namespace Examen.Controladores
 {
-    // Hereda las operaciones CRUD para el modelo Entrada_Model
     public class Entrada_Controller : BaseRepository<Entrada_Model>
     {
-        // Lógica para obtener el historial de entradas con detalles (Producto y Proveedor)
         public async Task<List<Entrada_Model>> GetEntradasConDetalleAsync()
         {
-            // Usamos .Include() para cargar los objetos de navegación (Eager Loading)
             return await _context.Entradas
                 .Include(e => e.Producto)
                 .Include(e => e.Proveedor)

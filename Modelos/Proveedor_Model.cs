@@ -25,7 +25,6 @@ namespace Examen.Modelos
         [StringLength(15)]
         public string Telefono { get; set; }
 
-        // Propiedad de navegación: Lista de entradas asociadas a este proveedor
         public ICollection<Entrada_Model> Entradas { get; set; } = new List<Entrada_Model>();
     }
 }

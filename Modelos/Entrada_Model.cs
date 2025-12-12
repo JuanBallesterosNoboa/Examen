@@ -28,9 +28,9 @@ namespace Examen.Modelos
 
         // Propiedades de navegación para las relaciones
         [ForeignKey("ProductoId")]
-        public Inventario_Model Producto { get; set; } // Relación 1:N con Inventario_Model (Productos)
+        public Inventario_Model Producto { get; set; } 
 
         [ForeignKey("ProveedorId")]
-        public Proveedor_Model Proveedor { get; set; } // Relación 1:N con Proveedor_Model
+        public Proveedor_Model Proveedor { get; set; } 
     }
 }
