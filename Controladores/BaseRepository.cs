@@ -1,55 +1,86 @@
-﻿// Archivo: AppDbContext.cs
+﻿// Archivo: BaseRepository.cs
 
+using ControlInventario.Modelos;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration; // Necesitas instalar el paquete NuGet System.Configuration.ConfigurationManager si usas .NET Core
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ControlInventario.Modelos
+namespace ControlInventario.Controladores
 {
-    public class AppDbContext : DbContext
+    public abstract class BaseRepository<T> where T : class
     {
-        // Definición de las colecciones (DbSet) que mapean a las tablas
-        public DbSet<Inventario_Model> Productos { get; set; } // Usamos el nombre lógico "Productos" para la tabla
-        public DbSet<Proveedor_Model> Proveedores { get; set; }
-        public DbSet<Entrada_Model> Entradas { get; set; }
+        protected readonly AppDbContext _context;
 
-        // Constructor base
-        public AppDbContext() { }
-
-        // Configuración de la conexión
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public BaseRepository()
         {
-            if (!optionsBuilder.IsConfigured)
+            // Crea una nueva instancia de DbContext para cada operación (simple para Windows Forms)
+            _context = new AppDbContext(new DbContextOptions<AppDbContext>());
+        }
+
+        // Obtener todos
+        public virtual async Task<List<T>> GetAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
+
+        // Obtener por ID
+        public virtual async Task<T> GetByIdAsync(int id)
+        {
+            return await _context.Set<T>().FindAsync(id);
+        }
+
+        // Agregar
+        public virtual async Task<bool> AddAsync(T entity)
+        {
+            try
             {
-                // Usamos la instancia SQL Server de tu entorno y Autenticación de Windows
-                // Server=JUAN\MSSQLSERVER01;Database=ControlInventarioDB;Integrated Security=True;TrustServerCertificate=True;
-
-                // Opción 1: Leer desde App.config (Recomendado para producción/configuración externa)
-                // string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-                // Opción 2: Usar la cadena de conexión directa para simplicidad en Windows Forms
-                string connectionString =
-                    "Server=JUAN\\MSSQLSERVER01;Database=ControlInventarioDB;Integrated Security=True;TrustServerCertificate=True;";
-
-                optionsBuilder.UseSqlServer(connectionString);
+                await _context.Set<T>().AddAsync(entity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores simple
+                Console.WriteLine($"Error al agregar: {ex.Message}");
+                return false;
             }
         }
 
-        // Configuración adicional de modelos y restricciones
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // Actualizar
+        public virtual async Task<bool> UpdateAsync(T entity)
         {
-            // Configurar precisión para decimales (dinero/costo)
-            modelBuilder.Entity<Inventario_Model>()
-                .Property(p => p.PrecioUnitario)
-                .HasColumnType("decimal(10, 2)");
+            try
+            {
+                _context.Set<T>().Update(entity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al actualizar: {ex.Message}");
+                return false;
+            }
+        }
 
-            modelBuilder.Entity<Entrada_Model>()
-                .Property(e => e.Costo)
-                .HasColumnType("decimal(10, 2)");
+        // Eliminar
+        public virtual async Task<bool> DeleteAsync(int id)
+        {
+            try
+            {
+                var entity = await GetByIdAsync(id);
+                if (entity == null) return false;
 
-            // Configurar que RUC debe ser único (aunque ya está en SQL, buena práctica)
-            modelBuilder.Entity<Proveedor_Model>()
-                .HasIndex(p => p.RUC)
-                .IsUnique();
+                _context.Set<T>().Remove(entity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al eliminar: {ex.Message}");
+                return false;
+            }
         }
     }
 }

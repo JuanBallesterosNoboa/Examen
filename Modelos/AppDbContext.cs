@@ -13,7 +13,7 @@ namespace ControlInventario.Modelos
         public DbSet<Entrada_Model> Entradas { get; set; }
 
         // Constructor base
-        public AppDbContext() { }
+        public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions) { }
 
         // Configuración de la conexión
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

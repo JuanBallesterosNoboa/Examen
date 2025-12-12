@@ -1,9 +1,7 @@
-﻿// Archivo: Modelos/Proveedor_Model.cs
-
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Examen.Modelos;
+using Microsoft.EntityFrameworkCore;    
+using Examen.Modelos;   
 
 namespace ControlInventario.Modelos
 {
